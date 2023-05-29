@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deploy
+  namespace: webapp-yellow
+  labels:
+    apache-app
+spec:
+  selector:
+    matchLabels:
+      apache-app
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        apache-app
+    spec:
+      containers:
+        - apache-app-eric
+          image: ericbek/coffee-website-2:main
+          ports:
+            - containerPort: 8080

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: apache-service
+  namespace: webapp-yellow
+  labels:
+    app: apache-app
+spec:
+  selector:
+    app: apache-app
+  type: LoadBalancer
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
