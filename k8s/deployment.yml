@@ -4,19 +4,19 @@ metadata:
   name: app-deploy
   namespace: webapp-yellow
   labels:
-    apache-app
+    app: nginx-app
 spec:
   selector:
     matchLabels:
-      apache-app
+      app: nginx-app
   replicas: 2
   template:
     metadata:
       labels:
-        apache-app
+        app: nginx-app
     spec:
       containers:
-        - apache-app-eric
-          image: ericbek/coffee-website-2:main
+        - name: nginx-app-john
+          image: fadydevops/myapp:v1
           ports:
             - containerPort: 8080
